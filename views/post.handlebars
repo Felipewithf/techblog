@@ -1,5 +1,5 @@
 <div>
-  <h2>{{title}}</h2>
+  <h2 >{{title}}</h2>
   <p>{{body}}</p>
   <br>
   <h3>comments:</h3>
@@ -7,7 +7,13 @@
     <h4>{{comment.body}}</h4>
     <h5>– {{comment.user.username}} {{comment.createdAt}}</h5>
   {{/each}}
-  <p>
-    <button class="btn btn-primary">add a comment!</button>
-  </p>
+  <form class="form new-comment-form">
+   <div class="form-group">
+        <label for="comment-body">Content:</label>
+        <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
+      </div>
+    <button type="submit" class="btn btn-primary" data-id="{{id}}">add comment</button>
+  </form>
 </div>
+
+<script src="../js/comment.js"></script>
