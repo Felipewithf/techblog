@@ -1,13 +1,34 @@
 {{!-- if user has posts then display them here --}}
 {{#if posts.length}}
+<h2>Your posts: </h2>
 {{#each posts as |post| }}
-<h2>{{post.title}}</h2>
+<a href="/post/{{post.id}}">
+<h3>{{post.title}}</h3>
 <p>{{post.body}}</p>
+<caption>comments: </caption>
+<caption>{{post.updatedAt}} </caption>
+<br>
+</a>
 {{/each}}
 {{else}}
-<h2>Share your thoughts and create a post!</h2>
+<h3>You have not created any posts <br> Share your thoughts and make a post!</h3>
 {{/if}}
 
+{{!-- right side to make a new post --}}
+   <h3>Create a New Post</h3>
 
-{{!-- load a button for create a post --}}
-<button>+ NEW POST</button>
+    <form class="form new-post-form">
+      <div class="form-group">
+        <label for="post-title">title:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
+      </div>
+      <div class="form-group">
+        <label for="post-body">Content:</label>
+        <textarea class="form-input" id="post-body" name="post-body"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">PUBLISH</button>
+      </div>
+    </form>
+
+<script src="./js/post.js"></script>

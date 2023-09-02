@@ -8,8 +8,8 @@ Post.init(
     title: {
       type: DataTypes.STRING,
     },
-    body: { 
-      type: DataTypes.STRING
+    body: {
+      type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -21,10 +21,10 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: "post",
   }
 );
 
