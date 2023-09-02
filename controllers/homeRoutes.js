@@ -17,13 +17,33 @@ router.get("/", async (req, res) => {
     //serialize data so the template can read it.
     const home_feed_posts = postData.map((post) => post.get({ plain: true }));
     console.log(home_feed_posts);
+    console.log(req.session.logged_in);
     //pass the serialize data into the template
     res.render("homepage", {
       home_feed_posts,
-      loggedIn: req.session.loggedIn,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/profile", async (req, res) => {
+  try {
+    console.log(req.session.user_id);
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Post }],
+    });
+
+    const user = userData.get({ plain: true });
+    console.log(user);
+    res.render("profile", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

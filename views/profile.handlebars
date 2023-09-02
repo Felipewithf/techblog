@@ -1,0 +1,13 @@
+{{!-- if user has posts then display them here --}}
+{{#if posts.length}}
+{{#each posts as |post| }}
+<h2>{{post.title}}</h2>
+<p>{{post.body}}</p>
+{{/each}}
+{{else}}
+<h2>Share your thoughts and create a post!</h2>
+{{/if}}
+
+
+{{!-- load a button for create a post --}}
+<button>+ NEW POST</button>
