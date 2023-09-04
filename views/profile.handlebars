@@ -10,7 +10,7 @@
 
             {{#if posts.length}}
             {{#each posts as |post| }}
-            <div class="col">
+            <div class="col pt-3">
               <div class="card h-90">
                 <div class="card-body">
                   <h5 class="card-title">{{post.title}}</h5>
@@ -21,8 +21,8 @@
                   <div class="card-footer hstack gap-3 py-0">
                     <div class="p-2">{{post.updatedAt}}</div>
                     <div class="p-2 ms-auto"><a href="/post/{{post.id}}" class="btn btn-link">view</a></div>
-                    <div class="p-2"><a href="#" class="btn btn-link">edit</a></div>
-                    <div class="p-2"><a href="#" class="btn btn-outline-danger">delete</a></div>
+                    <div class="p-2"><a href="/edit/{{post.id}}" class="btn btn-link">edit</a></div>
+                    <div class="p-2"><a class="btn btn-outline-danger deletepost" data-id="{{post.id}}">delete</a></div>
                   </div>
               </div>
             </div>

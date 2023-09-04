@@ -1,0 +1,24 @@
+
+     <div class="col-12 col-md-6 mb-4">
+        <div class="container-md">
+          <h3 class="">Edit Blog Post</h3>
+          <form class="edit-post-form">
+            <div class="mb-3">
+              <p id="title_holder" class="d-none">{{title}}</p>
+              <label for="post-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="post-title" name="post-title">
+            </div>
+            <div class="mb-3">
+              <p id="content_holder" class="d-none">{{body}}</p>
+              <label for="post-body" class="form-label">Content</label>
+              <textarea id="post-body" class="form-control" name="post-body" rows="3"></textarea>
+            </div>
+            <div class="">
+            <button type="submit" class="btn btn-primary" data-id="{{id}}">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+<script src="/js/editpost.js"></script>

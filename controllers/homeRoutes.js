@@ -79,6 +79,27 @@ router.get("/post/:id", async (req, res) => {
   } catch (err) {}
 });
 
+//edit post page
+router.get("/edit/:id", async (req, res) => {
+  try {
+    const post_editData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const post = post_editData.get({ plain: true });
+    console.log(post);
+    res.render("edit", {
+      ...post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {}
+});
+
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
