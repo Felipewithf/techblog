@@ -49,22 +49,32 @@
       <div class="text-start container px-5" id="commentHolder">
         <hr />
         <p class=""><strong>Comments</strong></p>
-         <div class="container-md">
-
-
-        <div class="card removeborder">
-          <div class="card-body">
-            <p class="card-text fst-italic">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <figcaption class="blockquote-footer">
-              USERNAME - 10/10/1020
-            </figcaption>
+        <div class="container-md">
+          <div class="card removeborder">
+            <div class="card-body">
+              <p class="card-text fst-italic">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+              <figcaption class="blockquote-footer">
+                USERNAME - 10/10/1020
+              </figcaption>
+            </div>
           </div>
-        </div>
 
-      </div> 
+          <form class="form new-comment-form">
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                id="comment-body"
+                name="comment-body"
+                rows="3"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-id="{{id}}">Add Comment</button>
+          </form>
+
+        </div>
       </div>
     </div>
 

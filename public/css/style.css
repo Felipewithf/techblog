@@ -1,3 +1,4 @@
 .removeborder{    
-    border: none;
+    border: 0 solid white;
+    background-color: antiquewhite;
 }

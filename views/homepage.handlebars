@@ -1,13 +1,25 @@
-{{#each home_feed_posts as |post| }}
+   <div class="container-md pt-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
 
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <!-- Call the helper function with triple brackets to render the span as HTML -->
-    <h2>{{post.title}}</h2>
-  </div>
-  <div class="col-md-6">
-    <h3>written by: {{post.user.username}}</h3>
-  </div>
-</div>
+{{#each home_feed_posts as |post| }}
+        <div class="col">
+          <div class="card h-90">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text text-truncate">
+                {{post.body}}
+              </p>
+              <a href="/post/{{post.id}}" class="btn btn-link stretched-link">Read full blog</a>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">
+                by {{post.user.username}} on {{post.createdAt}}
+              </small>
+            </div>
+          </div>
+        </div>
 
 {{/each }}
+
+    </div>
+    </div>

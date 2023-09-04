@@ -1,19 +1,46 @@
-<div>
-  <h2 >{{title}}</h2>
-  <p>{{body}}</p>
-  <br>
-  <h3>comments:</h3>
-  {{#each comments as |comment|}}
-    <h4>{{comment.body}}</h4>
-    <h5>– {{comment.user.username}} {{comment.createdAt}}</h5>
-  {{/each}}
-  <form class="form new-comment-form">
-   <div class="form-group">
-        <label for="comment-body">Content:</label>
-        <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
+
+   <div class="container-md pt-5 text-center">
+      <h1 class="display-4">{{title}}</h1>
+      <p class="text-body-secondary">Author: {{user.username}} - {{createdAt}}</p>
+      <h6>{{body}}</h6>
+
+      <div class="text-start container px-5" id="commentHolder">
+        <hr />
+        <p class=""><strong>Comments</strong></p>
+        <div class="container-md">
+
+           {{#each comments as |comment|}}
+          <div class="card removeborder">
+            <div class="card-body">
+              <p class="card-text fst-italic">
+                {{comment.body}}
+              </p>
+              <figcaption class="blockquote-footer">
+                {{comment.user.username}} - {{comment.createdAt}}
+              </figcaption>
+            </div>
+          </div>
+          {{/each}}
+
+          {{#if logged_in}}
+          <form class="form new-comment-form pt-5">
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                id="comment-body"
+                name="comment-body"
+                rows="3"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-id="{{id}}">Add Comment</button>
+          </form>
+          {{else}}
+          <a href="/login" class="pt-5"><button type="submit" class="btn btn-primary">Login to Comment</button></a>
+          {{/if}}
+
+        </div>
       </div>
-    <button type="submit" class="btn btn-primary" data-id="{{id}}">add comment</button>
-  </form>
-</div>
+    </div>
+
 
 <script src="../js/comment.js"></script>

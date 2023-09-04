@@ -1,34 +1,68 @@
+  <div class="container-md pt-5">
+    <div class="row">
+      
+      <div class="col-12 col-md-6 mb-4">
+        <div class="container-md ">
+          <h3>My Blogs</h3>
+          <div class="row row-cols-1">
+           
 {{!-- if user has posts then display them here --}}
-{{#if posts.length}}
-<h2>Your posts: </h2>
-{{#each posts as |post| }}
-<a href="/post/{{post.id}}">
-<h3>{{post.title}}</h3>
-<p>{{post.body}}</p>
-<caption>comments: </caption>
-<caption>{{post.updatedAt}} </caption>
-<br>
-</a>
-{{/each}}
-{{else}}
-<h3>You have not created any posts <br> Share your thoughts and make a post!</h3>
-{{/if}}
+
+            {{#if posts.length}}
+            {{#each posts as |post| }}
+            <div class="col">
+              <div class="card h-90">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.title}}</h5>
+                  <p class="card-text text-truncate">
+                    {{post.body}}
+                  </p>
+                </div>
+                  <div class="card-footer hstack gap-3 py-0">
+                    <div class="p-2">{{post.updatedAt}}</div>
+                    <div class="p-2 ms-auto"><a href="/post/{{post.id}}" class="btn btn-link">view</a></div>
+                    <div class="p-2"><a href="#" class="btn btn-link">edit</a></div>
+                    <div class="p-2"><a href="#" class="btn btn-outline-danger">delete</a></div>
+                  </div>
+              </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="col">
+                <h4>You have not created any posts <br> Share your thoughts and make a post!</h4>
+                </div>
+            {{/if}}
+          
+          </div>
+        </div>
+      </div>
 
 {{!-- right side to make a new post --}}
-   <h3>Create a New Post</h3>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="container-md">
+          <h3 class="">New Blog</h3>
+          <form class="new-post-form">
+            <div class="mb-3">
+              <label for="post-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="post-title" name="post-title">
+            </div>
+            <div class="mb-3">
+              <label for="post-body" class="form-label">Content</label>
+              <textarea id="post-body" class="form-control" name="post-body" rows="3"></textarea>
+            </div>
+            <div class="">
+            <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="post-title">title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <label for="post-body">Content:</label>
-        <textarea class="form-input" id="post-body" name="post-body"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">PUBLISH</button>
-      </div>
-    </form>
+
+    </div>
+    </div>
+
+
+
+
 
 <script src="./js/profile.js"></script>
