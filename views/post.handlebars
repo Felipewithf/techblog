@@ -1,7 +1,7 @@
 
    <div class="container-md pt-5 text-center">
       <h1 class="display-4">{{title}}</h1>
-      <p class="text-body-secondary">Author: {{user.username}} - {{createdAt}}</p>
+      <p class="text-body-secondary">Author: {{user.username}} - {{ format_date createdAt}}</p>
       <h6>{{body}}</h6>
 
       <div class="text-start container px-5" id="commentHolder">
@@ -16,7 +16,7 @@
                 {{comment.body}}
               </p>
               <figcaption class="blockquote-footer">
-                {{comment.user.username}} - {{comment.createdAt}}
+                {{comment.user.username}} {{ format_date comment.createdAt}}
               </figcaption>
             </div>
           </div>
@@ -34,6 +34,8 @@
             </div>
             <button type="submit" class="btn btn-primary" data-id="{{id}}">Add Comment</button>
           </form>
+
+          <script src="/js/comment.js"></script>
           {{else}}
           <a href="/login" class="pt-5"><button type="submit" class="btn btn-primary">Login to Comment</button></a>
           {{/if}}
@@ -43,4 +45,3 @@
     </div>
 
 
-<script src="../js/comment.js"></script>

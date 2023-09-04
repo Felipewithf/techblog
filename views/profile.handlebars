@@ -19,7 +19,7 @@
                   </p>
                 </div>
                   <div class="card-footer hstack gap-3 py-0">
-                    <div class="p-2">{{post.updatedAt}}</div>
+                    <div class="p-2">{{format_date post.updatedAt}}</div>
                     <div class="p-2 ms-auto"><a href="/post/{{post.id}}" class="btn btn-link">view</a></div>
                     <div class="p-2"><a href="/edit/{{post.id}}" class="btn btn-link">edit</a></div>
                     <div class="p-2"><a class="btn btn-outline-danger deletepost" data-id="{{post.id}}">delete</a></div>
@@ -65,4 +65,4 @@
 
 
 
-<script src="./js/profile.js"></script>
+<script src="/js/profile.js"></script>
