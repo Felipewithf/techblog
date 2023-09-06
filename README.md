@@ -24,7 +24,9 @@ Load <pre><code>npm i</code></pre> to install all the dependencis then log into 
 
 <pre><code>source schema.sql </code></pre>
 
-if you see three tables populated with data after query.sql you are good to go!
+Then you can run the application and test it!
+
+<pre><code>npm run start </code></pre>
 
 ## Test
 
@@ -35,6 +37,14 @@ Test by doing the following
 - view each posts as a logged in user to comment
 - on dashboard, edit, delete and create new posts
 - wait 10 minutes inside the dashboard as innactive and then try to performed any actions- (expected behaviour is to failed and taken back to login screen)
+
+## screenshots
+
+![login Page](/screenshots/signup%20page.png)
+![empty stage Page](/screenshots/empty%20stage%20on%20user%20dashboard.png)
+![User Dashboard](/screenshots/User%20dashboard.png)
+![homepage](/screenshots/homepage.png)
+![Single blog Page](/screenshots/blog%20page.png)
 
 ## License
 
